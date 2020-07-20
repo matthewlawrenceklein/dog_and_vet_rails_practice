@@ -1,0 +1,10 @@
+<%= form_for @appointment do |f| %>
+
+    <%= f.label :dog_id %>
+    <%= f.collection_select :dog_id, Dog.all, :id, :name %>
+    <br>
+    <%= f.label :vet_id %>
+    <%= f.collection_select :vet_id, Vet.all, :id, :name %>
+    <%= f.submit %>
+
+<% end %>
