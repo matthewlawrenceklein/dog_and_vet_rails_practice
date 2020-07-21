@@ -28,9 +28,9 @@ class DogsController < ApplicationController
     end
 
     def update
-        @dog = Dog.new(dog_params)
-        if @dog.valid?  
-            @dog.save
+        @dog = Dog.find(params[:id])
+
+        if @dog.update(dog_params)
             redirect_to dog_path(@dog)
         else
             render :edit
@@ -38,7 +38,14 @@ class DogsController < ApplicationController
     end
 
     def destroy
-        Dog.find(params[:id]).destroy
+        @dog = Dog.find(params[:id])
+        @appointments = Appointment.all.select {|app| app.dog_id == @dog.id}
+
+        @appointments.each do |app|
+            app.destroy
+        end 
+        
+        @dog.destroy
         redirect_to dogs_path
     end
 
