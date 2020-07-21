@@ -19,5 +19,4 @@ end
 
 50. times do
     Appointment.create(vet_id: Vet.all.sample.id, dog_id: Dog.all.sample.id)
-    #TODO make it work 
 end

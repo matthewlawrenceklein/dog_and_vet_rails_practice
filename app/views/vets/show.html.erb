@@ -1,0 +1,4 @@
+<h1>MY VET IS <%= @vet.name %> </h1>
+<%= button_to 'BACK', vets_path, method: :get %>
+<%= button_to 'EDIT VET', edit_vet_path(@vet), method: :get %>
+<%= button_to 'DELETE VET', vets_path, method: :destroy %>

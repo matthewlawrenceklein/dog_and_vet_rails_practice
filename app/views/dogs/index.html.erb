@@ -1,5 +1,9 @@
 <h1>EVERY DOG</h1>
 
+<%= button_to('ADD DOG', new_dog_path, method: :get) %> <br> 
+<hr>
+
+
 <% @dogs.each do |dog| %>
 <%= link_to(dog.name, dog_path(dog.id))  %> </br>
 <% end  %>

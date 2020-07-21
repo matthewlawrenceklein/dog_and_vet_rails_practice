@@ -1,0 +1,7 @@
+<h1>ALL MY VETS</h1>
+
+<%= button_to('NEW VET', new_vet_path, method: :get) %> <br>
+<hr>
+<% @vets.each do |vet| %>
+<%= link_to(vet.name, vet_path(vet)) %> <br>
+<% end  %>

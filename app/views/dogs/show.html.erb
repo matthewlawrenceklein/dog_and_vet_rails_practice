@@ -2,5 +2,6 @@
 <h2>his name is <%= @dog.name %> </h2>
 <h2>his breed is <%= @dog.breed %> </h2>
 
-<%= link_to('Back', dogs_path) %>
+<%= button_to "Back", dogs_path, method: :get %>
 <%= button_to "Delete Dog :(", dog_path(@dog), method: :delete %>
+<%= button_to "Edit Dog :)", edit_dog_path(@dog), method: :get %>

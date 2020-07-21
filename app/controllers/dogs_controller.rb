@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
     def show
         @dog = Dog.find(params[:id])
@@ -13,9 +14,27 @@ class DogsController < ApplicationController
     end
 
     def create
-        # @dog = Dog.create(name: params[:dog][:name], breed: params[:dog][:breed])
-        @dog = Dog.create(dog_params)
-        redirect_to dog_path(@dog)
+        @dog = Dog.new(dog_params)
+        if @dog.valid?  
+            @dog.save
+            redirect_to dog_path(@dog)
+        else
+            render :new  
+        end 
+    end
+
+    def edit 
+        @dog = Dog.find(params[:id])
+    end
+
+    def update
+        @dog = Dog.new(dog_params)
+        if @dog.valid?  
+            @dog.save
+            redirect_to dog_path(@dog)
+        else
+            render :edit
+        end 
     end
 
     def destroy
