@@ -2,6 +2,6 @@
 <%= link_to('ADD APPOINTMENT', '/appointments/new') %><br>
 <hr>
 <% @appointments.each do |app| %>
-<%= link_to(app.dog, appointment_path(app))  %> </br>
+<%= link_to(app.name, appointment_path(app))  %> </br>
 <% end  %>
 

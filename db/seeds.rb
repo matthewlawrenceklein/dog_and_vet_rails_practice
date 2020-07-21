@@ -18,5 +18,7 @@ end
 end
 
 50. times do
-    Appointment.create(vet_id: Vet.all.sample.id, dog_id: Dog.all.sample.id)
+    vet = Vet.all.sample
+    dog = Dog.all.sample
+    Appointment.create(name: "#{dog.name} appointment with #{vet.name}", vet_id: vet.id, dog_id: dog.id)
 end
